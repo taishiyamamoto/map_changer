@@ -3,13 +3,13 @@
 import rospy
 import rospkg
 from node_handler import *
-from map_sample.srv import *
+from map_changer.srv import *
 
 class map_changer:
     def __init__(self):
         rospy.init_node('map_changer')
         self.r = rospkg.RosPack()
-        self.path = self.r.get_path('map_sample')
+        self.path = self.r.get_path('map_changer')
         self.srv_server_handler = rospy.Service('~change_map', MapChange, self.service_callback)
     
     def service_callback(self, req):
